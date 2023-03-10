@@ -11,7 +11,7 @@ class blogController {
             if(!checkduplication){
             const nBlog=await Blogs.create({title,content,image})
             return res.status(201).json({
-            message:"New blog posted",
+            message:"Successfully created",
             data:nBlog
             })
             }

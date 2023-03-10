@@ -9,7 +9,7 @@ const app=express()
 
 dotenv.config()
 app.use(cors())
-app.use(bodyParser.json())
+app.use(bodyParser.json({ limit: '30mb' }))
 const port=process.env.port
 const host=process.env.host
 const conn=process.env.con
