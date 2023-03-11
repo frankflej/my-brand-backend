@@ -15,16 +15,17 @@ const loginController = async (req,res)=>{
         else{
             const passCheck= await bcrypt.compare(password,foundUser.password)
             if(passCheck){
-                const token= jwt.sign({isAdmin:foundUser.isAdmin} , process.env.secret , {expiresIn:'1d'} )
+                const token= jwt.sign({isAdmin:foundUser.isAdmin, name:foundUser.username, email:foundUser.email} , process.env.secret , {expiresIn:'1d'} )
                 // console.log(token)
                 res.cookie("token",token,{
                     httpOnly: true,
                     maxAge: 1000 * 60 * 60 * 24 // 1 day
                 })
-                return res.status(200).json({
+                return res.status(200).json({ 
                     data:{
-                        email:foundUser.email,
-                        isAdmin:foundUser.isAdmin
+                    id:foundUser._id,
+                    email:foundUser.email,
+                    isAdmin:foundUser.isAdmin
                     },
                     token:token
                     
@@ -41,7 +42,7 @@ const loginController = async (req,res)=>{
     }
     catch(error){
         
-        console.log(error.message)
+        console.log(error)
 
     }
 }

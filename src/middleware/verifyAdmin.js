@@ -13,6 +13,7 @@ const verifyAdmin=(req,res,next)=>{
             
             const verification=jwt.verify(token,process.env.secret,{expiresIn:'1d'})
             if(verification.isAdmin){
+                req.user= verification
                     next()
             }else{
                 return res.status(400).json({

@@ -73,7 +73,7 @@ class blogController {
         const _id=id
 
         const delBlog=await Blogs.findByIdAndDelete(_id)
-
+        cos
         if(delBlog){
             return res.status(200).json({
                 message:`Deleted successfully`
