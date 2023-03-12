@@ -23,6 +23,10 @@ const blogSchema= new mongoose.Schema({
         }
     }
     ],
+    likes:{
+        name:[{type:String}]
+    }
+    ,
     created_date:{
         type:Date,
         default:Date.now
