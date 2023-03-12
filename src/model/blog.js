@@ -14,6 +14,19 @@ const blogSchema= new mongoose.Schema({
         type:String,
         required:true,
     },
+    comment:[{
+        name: { type: String },
+        message: {type:String},
+        createdAt:{
+            type:Date,
+            default:Date.now()
+        }
+    }
+    ],
+    likes:{
+        name:[{type:String}]
+    }
+    ,
     created_date:{
         type:Date,
         default:Date.now

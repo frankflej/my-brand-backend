@@ -11,7 +11,7 @@ class blogController {
             if(!checkduplication){
             const nBlog=await Blogs.create({title,content,image})
             return res.status(201).json({
-            message:"New blog posted",
+            message:"Successfully created",
             data:nBlog
             })
             }
@@ -73,7 +73,7 @@ class blogController {
         const _id=id
 
         const delBlog=await Blogs.findByIdAndDelete(_id)
-
+        cos
         if(delBlog){
             return res.status(200).json({
                 message:`Deleted successfully`
@@ -103,7 +103,7 @@ class blogController {
         }
         else{
             return res.status(404).json({
-                message:`User not found`
+                message:`Post not found`
             })
         }
         } catch (error) {

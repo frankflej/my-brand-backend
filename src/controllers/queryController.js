@@ -33,11 +33,6 @@ class queryController {
             errFunc(res,message,status)
        }
     }
-
-   
-
-   
- 
 }
 
 export default queryController;
