@@ -24,7 +24,7 @@ const blogSchema= new mongoose.Schema({
     }
     ],
     likes:{
-        name:[{type:String}]
+        name:[{type:String,unique:true}]
     }
     ,
     created_date:{
