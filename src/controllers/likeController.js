@@ -4,8 +4,6 @@ const likeController= async(req,res)=>{
     const {id}=req.params
     const _id=id
     // console.log(_id)
-    const tok=req.headers.credentials
-    // console.log(tok)
     const {user}= req
     const like ={
         name: user.email,
@@ -24,7 +22,7 @@ const likeController= async(req,res)=>{
         // console.log(blog.likes)
         return res.status(200).json({
             message:'Like added',
-            data:blog.likes
+            data:blog
         })
        }
        else{
