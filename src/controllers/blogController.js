@@ -47,7 +47,7 @@ class blogController {
             const {id}=req.params
             const {title,content}=req.body
             const _id=id
-            const updblog=await Blogs.findByIdAndUpdate({_id},{title,content}, { new: true })
+            const updblog=await Blogs.findById({_id},{title,content}, { new: true })
             if(!updblog){
                 return res.status(404).json({
                 message:`User with id =${_id} doesn't exists`
@@ -66,6 +66,23 @@ class blogController {
             errFunc(res,message,status)
         }
     }
+
+    static async updatelike(req,res){
+        const {id}=req.params
+        const likes=req.body
+        const _id=id
+        try {
+            const blogs=await Blogs.find()
+            const blog=await Blogs.findById({_id},{likes},{new:true})
+            blog.save()
+            return res.status(200).json({
+                data:blog
+            })
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+   
 
     static async deleteBlog(req,res){
         try {
