@@ -76,7 +76,7 @@ class blogController {
             const blog=await Blogs.findById({_id},{likes},{new:true})
             blog.save()
             return res.status(200).json({
-                data:blog
+                data:[{blogs},{blog}]
             })
         } catch (error) {
             console.log(error.message)
