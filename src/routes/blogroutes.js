@@ -12,7 +12,7 @@ router.put('/:id',verifyAdmin,blogController.updateblog)
 router.delete('/:id',verifyAdmin,blogController.deleteBlog)
 router.get('/:id',blogController.getOne)
 router.post('/:id/comments',extractToken ,commentController)
-router.post('/:id/like',extractToken,likeController)
+router.patch('/:id/like',extractToken,blogController.updatelike)
 
 
 export default router
